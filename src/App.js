@@ -78,7 +78,7 @@ function App() {
             newTopBarHeight = Math.max(0, newTopBarHeight)
             newTopBarHeight = Math.min(defaultTopBarHeight, newTopBarHeight)
 
-            if (newTopBarHeight < defaultTopBarHeight/1.5){
+            if (newTopBarHeight < defaultTopBarHeight){
                 // this makes it disappear slowly, but make it reappear quickly
                 if (delta > 0) return
             }
@@ -122,6 +122,7 @@ function App() {
 
     const handlePageSelect = (page) => {
         setSelectedPage(page);
+        window.scrollTo({top: 0})
         if (isMobile && sidebarOpen) setSidebarOpen(false)
     };
 
