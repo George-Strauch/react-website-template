@@ -16,6 +16,9 @@ function App() {
     // proportion of the view width the side nav takes
     const side_bar_width_mult = 0.17
 
+    // proportion of the view width the side nav takes on mobile
+    const side_bar_width_mobile_mult = 0.5
+
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
     const [darkMode, setDarkMode] = useState(false);
 
@@ -38,7 +41,7 @@ function App() {
 
             // determine the sidebar width
             // mobile default
-            let newWidth = window.innerWidth * 0.5;
+            let newWidth = window.innerWidth * side_bar_width_mobile_mult;
             if (!mobile_bool) {
                 newWidth = Math.max(window.innerWidth * side_bar_width_mult, 200);
                 console.log("is mobile")
