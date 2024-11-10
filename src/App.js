@@ -12,6 +12,7 @@ import Watchlist from "./components/WatchListView";
 function App() {
     // proportion of the view height the top bar takes
     const top_bar_height_mult = 0.055
+    const min_top_bar_height = 45
 
     // proportion of the view width the side nav takes
     const side_bar_width_mult = 0.17
@@ -59,7 +60,8 @@ function App() {
             document.documentElement.style.setProperty('--default-topbar-height', "0");
 
             // top bar things
-            const newHeight = window.innerHeight * top_bar_height_mult;
+            let newHeight = window.innerHeight * top_bar_height_mult;
+            if (newHeight < min_top_bar_height) newHeight = min_top_bar_height
             // setTopBarHeight(newHeight);
             setDefaultTopBarHeight(newHeight);
             document.documentElement.style.setProperty('--topbar-height', `${newHeight}px`);
