@@ -10,6 +10,14 @@ import SideNavigation from "./components/SideNavigation";
 import Watchlist from "./components/WatchListView";
 
 function App() {
+
+    const getIsMobile = ()=> {
+        const h = window.innerHeight
+        const w = window.innerWidth
+        const aspect_ratio = w/h
+        return aspect_ratio < 1
+    }
+
     // proportion of the view height the top bar takes
     const top_bar_height_mult = 0.055
     const min_top_bar_height = 45
@@ -20,7 +28,7 @@ function App() {
     // proportion of the view width the side nav takes on mobile
     const side_bar_width_mobile_mult = 0.5
 
-    const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+    const [isMobile, setIsMobile] = useState(getIsMobile());
     const [darkMode, setDarkMode] = useState(false);
 
     const [defaultSidebarWidth, setDefaultSidebarWidth] = useState('200px');
@@ -37,7 +45,7 @@ function App() {
     useEffect(() => {
         const handleResize = () => {
             // set is mobile
-            let mobile_bool = window.matchMedia('(max-width: 48em)').matches
+            let mobile_bool = getIsMobile()
             setIsMobile(mobile_bool);
 
             // determine the sidebar width
