@@ -1,4 +1,4 @@
-# Basic website template created by [George Strauch](https://github.com/George-Strauch)to jumpstart new projects using ReactJS
+# Basic website template created by [George Strauch](https://github.com/George-Strauch) to jumpstart new projects using ReactJS
 
 
 ## Getting Started
